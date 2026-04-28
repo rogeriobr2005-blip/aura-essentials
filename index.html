@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AURA Essentials - Design minimalista para uma vida consciente. Explore nossa coleção exclusiva de móveis e objetos decorativos.">
+    <title>AURA | Essentials & Design</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="custom-cursor" aria-hidden="true"></div>
+<div class="cursor-follower" aria-hidden="true"></div>
+
+<div class="product-modal" id="product-modal" aria-hidden="true">
+    <div class="modal-overlay" onclick="closeModal()"></div>
+    <div class="modal-content">
+        <button class="close-modal" onclick="closeModal()" aria-label="Fechar detalhes">×</button>
+        <div class="modal-grid">
+            <div class="modal-image">
+                <img id="modal-img" src="" alt="">
+            </div>
+            <div class="modal-info">
+                <h2 id="modal-name"></h2>
+                <p id="modal-price" class="modal-price"></p>
+                <div class="modal-description">
+                    <h3>Sobre o Design</h3>
+                    <p id="modal-desc"></p>
+                </div>
+                <button id="modal-add-btn" class="btn-black">Adicionar à Sacola</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header class="header">
+    <div class="logo-wrapper">
+        <a href="#" class="logo-link">
+            <span class="logo">AURA</span>
+            <span class="logo-tagline">Essentials</span>
+        </a>
+    </div>
+
+    <nav class="nav-links" aria-label="Navegação Principal">
+        <a href="#shop" class="nav-item">Shop</a>
+        <a href="#" class="nav-item">Collections</a>
+        <a href="#" class="nav-item">About</a>
+    </nav>
+
+    <div class="actions">
+        <div class="search-box">
+            <label for="search" class="sr-only">Pesquisar produtos</label>
+            <input type="text" id="search" placeholder="Search...">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+        </div>
+        <button class="cart-btn" onclick="toggleCart()" aria-label="Abrir carrinho">
+            <span class="cart-icon" aria-hidden="true">🛒</span>
+            <div id="cart-count" class="cart-badge">0</div>
+        </button>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-bg-shimmer" aria-hidden="true"></div>
+    <div class="hero-content">
+        <p class="hero-subtitle">NEW ARRIVALS 2026</p>
+        <h1 class="hero-title">Elegância em<br>cada detalhe.</h1>
+        <div class="hero-actions">
+            <button class="btn-black" onclick="scrollToProducts()">Explorar Loja</button>
+            <button class="btn-outline">Ver Lookbook</button>
+        </div>
+    </div>
+</section>
+
+<main class="container" id="shop">
+    <div class="filter-bar">
+        <div class="filter-info">
+            <h2 class="curated-title">Curated Collection</h2>
+            <p id="product-results-count" aria-live="polite">Mostrando todos os itens</p>
+        </div>
+        <div class="filter-select-wrapper">
+            <label for="sort-select" class="sr-only">Ordenar por:</label>
+            <select id="sort-select" onchange="sortProducts(this.value)">
+                <option value="">Ordenar</option>
+                <option value="price-asc">Menor Preço</option>
+                <option value="price-desc">Maior Preço</option>
+                <option value="name">Nome (A-Z)</option>
+            </select>
+        </div>
+    </div>
+
+    <section class="products-grid" id="products">
+        </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-grid-main">
+            <div class="footer-column brand-col">
+                <span class="logo">AURA</span>
+                <p class="footer-tagline">Design minimalista para uma vida consciente.</p>
+                <div class="newsletter">
+                    <p class="news-title">Assine nossa curadoria</p>
+                    <div class="news-form">
+                        <input type="email" placeholder="Seu e-mail">
+                        <button type="button">OK</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4>Explorar</h4>
+                <nav class="footer-nav">
+                    <a href="#shop">Coleções</a>
+                    <a href="#">Lançamentos</a>
+                    <a href="#">Sustentabilidade</a>
+                    <a href="#">Designers</a>
+                </nav>
+            </div>
+
+            <div class="footer-column">
+                <h4>Suporte</h4>
+                <nav class="footer-nav">
+                    <a href="#">Pedidos</a>
+                    <a href="#">Trocas e Devoluções</a>
+                    <a href="#">Privacidade</a>
+                    <a href="#">Contato</a>
+                </nav>
+            </div>
+
+            <div class="footer-column">
+                <h4>Siga-nos</h4>
+                <nav class="footer-nav">
+                    <a href="#" target="_blank">Instagram</a>
+                    <a href="#" target="_blank">Pinterest</a>
+                    <a href="#" target="_blank">LinkedIn</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Aura Essentials Studio. Todos os direitos reservados.</p>
+            <p class="credits">Crafted by Rogerio.dev</p>
+        </div>
+    </div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="toggleCart()" aria-hidden="true"></div>
+
+<aside class="cart-drawer" id="cart" aria-labelledby="cart-title" aria-modal="true" role="dialog">
+    <div class="cart-inner">
+        <div class="cart-head">
+            <h3 id="cart-title">Seu Carrinho</h3>
+            <button class="close-drawer" onclick="toggleCart()" aria-label="Fechar carrinho">×</button>
+        </div>
+        <div id="cart-items-list" class="cart-body"></div>
+        <div class="cart-summary">
+            <div class="summary-line">
+                <span>Frete</span>
+                <span class="free-shipping" style="color: #27ae60;">Grátis</span>
+            </div>
+            <div class="summary-line total">
+                <span>Total</span>
+                <span id="cart-total-value">R$ 0,00</span>
+            </div>
+            <button class="btn-checkout">Finalizar Compra</button>
+        </div>
+    </div>
+</aside>
+
+<div id="notification" aria-live="assertive"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
