@@ -1,5 +1,6 @@
 # AURA | Essentials & Design
 Conceito: E-commerce Minimalista de Curadoria de Interiores.
+https://rogeriobr2005-blip.github.io/aura-essentials/
 
 A AURA é uma experiência digital focada no movimento slow living e no design minimalista. A página foi desenvolvida para transmitir sofisticação, calma e exclusividade, utilizando uma estética limpa (estilo escandinavo/moderno) onde o produto é o protagonista absoluto.
 
